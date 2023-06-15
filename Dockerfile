@@ -1,15 +1,15 @@
 FROM python:3
 
-WORKDIR pythonProject12
+WORKDIR api
 
-COPY requirements.txt /pythonProject12
+COPY requirements.txt /api
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY test_posts.py /pythonProject12
+COPY test_posts.py /api
 
-COPY validation /pythonProject12/validation
+COPY validation /api/validation
 
-COPY __init__.py /pythonProject12
+COPY __init__.py /api
 
-CMD ["pytest"]
+CMD ["pytest", "-rA", "--tb=line"]
